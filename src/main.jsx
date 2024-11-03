@@ -8,6 +8,8 @@ import { Home } from "./Pages/Home.jsx";
 import { Dashboard } from "./Pages/Dashboard.jsx";
 import { Categories } from "./Component/Categories.jsx";
 import { CoffeeCard } from "./Component/CoffeeCard.jsx";
+import { CoffeeDetails } from "./Pages/CoffeeDetails.jsx";
+import toast, { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,11 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "/coffee/:id",
+        element: <CoffeeDetails></CoffeeDetails>,
+        loader: () => fetch("../coffees.json"),
       },
     ],
   },
