@@ -28,7 +28,13 @@ const addFavorite = (coffee) => {
 
 
 // remove
+const removeFavorite = id => {
+    const dataS = getAllFavorites();
+    // console.log(data, id);
+    const checkDuplicate = dataS.filter(data => data.id !== id);
+    localStorage.setItem('my-favorite', JSON.stringify(checkDuplicate));
+    toast.success('deleted')
+}
 
 
-
-export { addFavorite, getAllFavorites }
+export { addFavorite, getAllFavorites, removeFavorite }
